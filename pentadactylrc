@@ -1,0 +1,14 @@
+nnoremap D d
+nnoremap d <C-d>
+nnoremap u <C-u>
+nnoremap U u
+
+nnoremap j 5j
+nnoremap k 5k
+
+inoremap jj <esc>
+cnoremap jj <esc>
+inoremap jk <esc>
+cnoremap jk <esc>
+cnoremap kj <esc>
+inoremap kj <esc>
