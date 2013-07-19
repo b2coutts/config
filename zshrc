@@ -23,6 +23,7 @@ if [ "$TERM" = "rxvt-unicode-256color" ]; then export TERM=rxvt-unicode; fi
 if [ "$TERM" = "screen" ]; then export TERM=screen-256color; fi
 export CSC="csclub.uwaterloo.ca"
 export SVN="https://girffe.net/svn"
+export GIT="https://github.com/b2coutts"
 export EDITOR=/usr/bin/vim
 
 # aliases
