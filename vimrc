@@ -13,6 +13,8 @@ syntax on
 au BufNewFile,BufRead *.rkt set filetype=scheme ts=2 sw=2
 au BufNewFile,BufRead *.tex set filetype=tex tw=80
 au BufNewFile,BufRead *.txt set tw=80
+set cursorline
+hi cursorline ctermbg=233 cterm=none
 
 noremap <F1> 
 nnoremap <F4> :!pdflatex %<CR><CR>
