@@ -1,7 +1,6 @@
 set bg=dark
 set ts=4
 set shiftwidth=4
-set number
 set rnu
 set numberwidth=2
 set backspace=2
@@ -11,10 +10,9 @@ set expandtab
 set smarttab
 
 syntax on
-au BufNewFile,BufRead *.rkt set ts=2 sw=2
+au BufNewFile,BufRead *.rkt set filetype=scheme ts=2 sw=2
 au BufNewFile,BufRead *.tex set filetype=tex tw=80
 au BufNewFile,BufRead *.txt set tw=80
-au BufNewFile,BufRead *.nl set filetype=racket
 
 noremap <F1> 
 nnoremap <F4> :!pdflatex %<CR><CR>
@@ -26,10 +24,9 @@ inoremap kj <ESC>
 inoremap jk <ESC>
 nnoremap <C-j> gj
 nnoremap <C-k> gk
-nnoremap <C-y> "*y
+nnoremap <C-y> "+y
 nnoremap <C-p> "*p
+nnoremap Y :%y+<CR>
 
 nnoremap >> :<C-u>exec repeat('>',v:count1)<CR>
 nnoremap << :<C-u>exec repeat('<',v:count1)<CR>
-
-call pathogen#infect()
