@@ -14,12 +14,13 @@ au BufNewFile,BufRead *.rkt set filetype=scheme ts=2 sw=2
 au BufNewFile,BufRead *.tex set filetype=tex tw=80
 au BufNewFile,BufRead *.txt set tw=80
 set cursorline
-hi cursorline ctermbg=233 cterm=none
+hi cursorline ctermbg=232 cterm=none
 
 noremap <F1> 
 nnoremap <F4> :!pdflatex %<CR><CR>
 nnoremap <F5> :!zsh<CR><CR>
 inoremap <F5> <ESC>:!zsh<CR><CR>a
+nnoremap <C-i> o<ESC>:.!
 nnoremap d_ v_d
 nnoremap c_ v_c
 inoremap kj <ESC>
