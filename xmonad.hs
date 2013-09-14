@@ -20,6 +20,7 @@ import Data.Monoid
 import System.Exit
 
 import XMonad.Layout.NoBorders
+import XMonad.Layout.ThreeColumns
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 
@@ -32,7 +33,8 @@ import qualified Data.Map        as M
 -- certain contrib modules.
 --
 -- myTerminal      = "cd /home/b2coutts; urxvt +sb -bg black -fg white -fn 'xft:Liberation Mono:pixelsize=10'"
-myTerminal      = "cd /home/b2coutts; urxvt +sb -bg black -fg white"
+-- myTerminal      = "cd /home/b2coutts; urxvt +sb -bg black -fg white -fn 'xft:Inconsolata:pixelsize=11'"
+myTerminal = "cd /home/b2coutts; urxvt +sb -bg black -fg white -fn -misc-tamsyn-medium-r-normal--12-87-100-100-c-60-iso8859-1"
 -- myTerminal      = "xterm"
  
 -- Whether focus follows the mouse pointer.
@@ -105,7 +107,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 		, ((modm .|. shiftMask, xK_s), spawn "scroll")
 
 		-- lock screen
-		, ((modm, xK_u), spawn "slock")
+		, ((modm, xK_u), spawn "gnome-screensaver-command --lock")
 
 		-- launch firefox
 		, ((modm, xK_c), spawn "firefox")
@@ -204,7 +206,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-{q,w,e}, Move client to screen 1, 2, or 3
     --
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_e, xK_q, xK_w] [0..]
+        | (key, sc) <- zip [xK_q, xK_e] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
  
  
@@ -244,10 +246,14 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
+
+myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full ||| cols)
   where
     -- default tiling algorithm partitions the screen into two panes
     tiled   = Tall nmaster delta ratio
+
+    -- partition the screen into side-by-side columns
+    cols    = ThreeCol nmaster delta ratio
  
     -- The default number of windows in the master pane
     nmaster = 1
