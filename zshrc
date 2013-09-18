@@ -3,6 +3,7 @@ HISTFILE=~/.histfile
 HISTSIZE=50000
 SAVEHIST=50000
 setopt appendhistory autocd extendedglob nomatch
+setopt nohup nocheckjobs
 unsetopt beep notify
 bindkey -v
 zstyle :compinstall filename '/home/b2coutts/.zshrc'
